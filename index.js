@@ -13,7 +13,45 @@ const PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
 app.get("/", (req, res) => {
   res.send("WhatsApp Automation Webhook is running successfully!");
 });
+app.get("/privacy", (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Privacy Policy - WhatsApp Automate</title>
+      </head>
+      <body style="font-family: Arial; max-width: 800px; margin: 40px auto; line-height: 1.6;">
+        <h1>Privacy Policy</h1>
 
+        <p><strong>WhatsApp Automate</strong> is a personal learning and testing project
+        created to explore WhatsApp Cloud API automation.</p>
+
+        <h2>Information We Process</h2>
+        <p>The application may temporarily process WhatsApp message content,
+        phone-number identifiers and related messaging data required to send
+        or receive messages through the WhatsApp Cloud API.</p>
+
+        <h2>How Information Is Used</h2>
+        <p>Information is used only for operating and testing the WhatsApp
+        automation functionality.</p>
+
+        <h2>Data Sharing</h2>
+        <p>This project does not sell personal information or share it with
+        advertisers.</p>
+
+        <h2>Data Retention</h2>
+        <p>The application does not intentionally maintain a permanent database
+        of WhatsApp message content.</p>
+
+        <h2>Contact</h2>
+        <p>For privacy-related questions, contact the application owner through
+        the email address associated with the application.</p>
+
+        <p>Last updated: September 10, 2026</p>
+      </body>
+    </html>
+  `);
+});
 // Meta webhook verification
 app.get("/webhook", (req, res) => {
   const mode = req.query["hub.mode"];
